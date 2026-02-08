@@ -174,7 +174,7 @@ with tab2:
         )
         st.plotly_chart(fig8, use_container_width=True)
 
-with tab4:
+with tab3:
     st.header("Filtered Data Table")
     st.dataframe(df_filtered, use_container_width=True)
     
