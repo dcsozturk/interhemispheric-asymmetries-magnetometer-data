@@ -29,30 +29,6 @@ df = load_data()
 # Sidebar filters
 st.sidebar.header("Filters")
 
-# Time range filter
-st.sidebar.subheader("Time Range")
-if df['dB_peak_time'].notna().any():
-    min_time = df['dB_peak_time'].min()
-    max_time = df['dB_peak_time'].max()
-    
-    time_range = st.sidebar.date_input(
-        "Select date range",
-        value=(min_time, max_time),
-        min_value=min_time,
-        max_value=max_time
-    )
-    
-    if len(time_range) == 2:
-        start_date, end_date = time_range
-        df_filtered = df[
-            (df['dB_peak_time'].dt.date >= start_date) & 
-            (df['dB_peak_time'].dt.date <= end_date)
-        ]
-    else:
-        df_filtered = df
-else:
-    df_filtered = df
-
 # dB_height filter
 st.sidebar.subheader("dB Height Range")
 min_height = float(df['dB_height'].min())
