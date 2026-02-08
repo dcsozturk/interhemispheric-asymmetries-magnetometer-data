@@ -81,7 +81,7 @@ if selected_dt:
 st.sidebar.markdown(f"**Showing {len(df_filtered)} of {len(df)} records**")
 
 # Main content
-tab1, tab2, tab3, tab4 = st.tabs(["N vs S Comparison", "MLT & SME Analysis", "Time Series", "Data Table"])
+tab1, tab2, tab3 = st.tabs(["N vs S Comparison", "MLT & SME Analysis", "Data Table"])
 
 with tab1:
     st.header("Northern vs Southern Hemisphere Comparison")
@@ -197,61 +197,6 @@ with tab2:
             labels={'sme': 'SME'}
         )
         st.plotly_chart(fig8, use_container_width=True)
-
-with tab3:
-    st.header("Time Series Analysis")
-    
-    # dB_height over time
-    fig9 = px.scatter(
-        df_filtered.dropna(subset=['dB_peak_time', 'dB_height']),
-        x='dB_peak_time', y='dB_height',
-        color='sme',
-        title='dB Height Over Time',
-        labels={'dB_peak_time': 'Time', 'dB_height': 'dB Height'},
-        hover_data=['n_mag', 's_mag', 'mlt_hr']
-    )
-    st.plotly_chart(fig9, use_container_width=True)
-    
-    # N and S magnitudes over time
-    fig10 = go.Figure()
-    
-    df_n = df_filtered.dropna(subset=['n_peak_times', 'n_mag'])
-    df_s = df_filtered.dropna(subset=['s_peak_times', 's_mag'])
-    
-    fig10.add_trace(go.Scatter(
-        x=df_n['n_peak_times'],
-        y=df_n['n_mag'],
-        mode='markers',
-        name='Northern Magnitude',
-        marker=dict(color='blue')
-    ))
-    
-    fig10.add_trace(go.Scatter(
-        x=df_s['s_peak_times'],
-        y=df_s['s_mag'],
-        mode='markers',
-        name='Southern Magnitude',
-        marker=dict(color='red')
-    ))
-    
-    fig10.update_layout(
-        title='Northern and Southern Magnitudes Over Time',
-        xaxis_title='Time',
-        yaxis_title='Magnitude',
-        hovermode='closest'
-    )
-    st.plotly_chart(fig10, use_container_width=True)
-    
-    # SME over time
-    fig11 = px.scatter(
-        df_filtered.dropna(subset=['dB_peak_time', 'sme']),
-        x='dB_peak_time', y='sme',
-        color='mlt_hr',
-        title='SME Over Time',
-        labels={'dB_peak_time': 'Time', 'sme': 'SME'},
-        hover_data=['dB_height', 'n_mag', 's_mag']
-    )
-    st.plotly_chart(fig11, use_container_width=True)
 
 with tab4:
     st.header("Filtered Data Table")
