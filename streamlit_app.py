@@ -56,21 +56,17 @@ if selected_dt:
 # Display filtered data info
 st.sidebar.markdown(f"**Showing {len(df_filtered)} of {len(df)} records**")
 
-# Main content
-tab1 = st.tabs(["Data Table"])
-
-with tab1:
-    st.header("Filtered Data Table")
-    st.dataframe(df_filtered, use_container_width=True)
+st.header("Filtered Data Table")
+st.dataframe(df_filtered, use_container_width=True)
     
-    # Download button
-    csv = df_filtered.to_csv(index=False)
-    st.download_button(
-        label="Download filtered data as CSV",
-        data=csv,
-        file_name="filtered_magnetometer_data.csv",
-        mime="text/csv"
-    )
+# Download button
+csv = df_filtered.to_csv(index=False)
+st.download_button(
+    label="Download filtered data as CSV",
+    data=csv,
+    file_name="filtered_magnetometer_data.csv",
+    mime="text/csv"
+)
 
 # Footer
 st.markdown("---")
