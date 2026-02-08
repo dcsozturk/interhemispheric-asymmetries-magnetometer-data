@@ -10,27 +10,6 @@ Interactive Streamlit app for analyzing interhemispheric asymmetries in magnetom
 - **Interactive Filters**: Filter by time range, dB height, and dt parameter
 - **Data Export**: Download filtered data as CSV
 
-## Deployment Instructions
-
-### Deploy to Streamlit Cloud (Recommended)
-
-1. **Push files to this GitHub repo:**
-   - `app.py` - Main application
-   - `requirements.txt` - Python dependencies
-   - Your data CSV file
-
-2. **Update data file path in app.py:**
-   - Line 16: Replace `"your_data_file.csv"` with your actual CSV filename
-
-3. **Deploy on Streamlit Cloud:**
-   - Go to [share.streamlit.io](https://share.streamlit.io)
-   - Sign in with GitHub
-   - Click "New app"
-   - Select this repository
-   - Set main file path: `app.py`
-   - Click "Deploy"
-
-Your app will be live at: `https://[your-app-name].streamlit.app`
 
 ### Local Testing
 
