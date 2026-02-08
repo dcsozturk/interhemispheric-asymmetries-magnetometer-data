@@ -28,7 +28,7 @@ df = load_data()
 
 # Sidebar filters
 st.sidebar.header("Filters")
-
+df_filtered = df
 # dB_height filter
 st.sidebar.subheader("dB Height Range")
 min_height = float(df['dB_height'].min())
