@@ -31,11 +31,11 @@ df = load_data()
 st.sidebar.header("Filters")
 df_filtered = df
 # dB_height filter
-st.sidebar.subheader("dB Height Range")
+st.sidebar.subheader("Magnetic Field Peak Difference Amplitude Range")
 min_height = float(df['dB_height'].min())
 max_height = float(df['dB_height'].max())
 height_range = st.sidebar.slider(
-    "Select dB_height range",
+    "Select dB amplitude range",
     min_height, max_height, (min_height, max_height)
 )
 df_filtered = df_filtered[
@@ -44,10 +44,10 @@ df_filtered = df_filtered[
 ]
 
 # dt filter
-st.sidebar.subheader("dt Parameter")
+st.sidebar.subheader("Magnetic Field Peak Difference Time Delay")
 dt_values = sorted(df['dt'].dropna().unique())
 selected_dt = st.sidebar.multiselect(
-    "Select dt values (leave empty for all)",
+    "Select dt values in minutes (leave empty for all)",
     options=dt_values,
     default=[]
 )
