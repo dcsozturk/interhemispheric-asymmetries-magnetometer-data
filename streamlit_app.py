@@ -12,6 +12,8 @@ st.title("Interhemispheric Asymmetries - Magnetometer Data Analysis")
 st.markdown("Analysis of Northern vs Southern hemisphere magnetometer measurements")
 st.markdown("Accompanying data set for: A Comparative Study of Ground Magnetic Variability Between High-Latitude Conjugate Chains to Characterize Interhemispheric Asymmetry During Geomagnetic Activity")
 st.markdown("Authors: Gabrielle M. Nowak (University of Alaska Fairbanks) (corr-auth), Dogacan S. Ozturk (University of Alaska Fairbanks), Zhonghua Xu (The University of Texas at Arlington), Hyomin Kim (New Jersey Institute of Technology), Mark J. Engebretson (Department of Physics, Augsburg University), Anna Willer (Technical University of Denmark) ")
+st.markdown("More about DTU West Greenland magnetometers and data can be found at https://www.space.dtu.dk/english/research/scientific_data_and_models/magnetic-ground-stations")
+st.markdown("More about the AAL-PIP East Antarctica magnetometers and data can be found at http://mist.ece.vt.edu/")
 # Load data
 @st.cache_data
 def load_data():
