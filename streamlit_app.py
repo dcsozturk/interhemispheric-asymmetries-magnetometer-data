@@ -21,7 +21,7 @@ def load_data():
     # Convert time columns to datetime
     time_cols = ['dB_peak_time', 'n_peak_times', 's_peak_times', 'dJr_peak_time']
     for col in time_cols:
-        df[col] = pd.to_datetime(df[col], format='%m/%d/%y %H:%M', errors='coerce')
+        df[col] = pd.to_datetime(df[col], format='mixed', errors='coerce')
     
     return df
 
